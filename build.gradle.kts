@@ -7,7 +7,6 @@ buildscript {
 }
 
 plugins {
-	id("application")
 	id("org.springframework.boot") version "2.6.7"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	kotlin("jvm") version "1.6.21"
@@ -44,4 +43,9 @@ subprojects {
 		plugin("io.spring.dependency-management")
 	}
 }
+
+tasks.getByName<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+	mainClass.set("com.study.hex_forum.adapter.HexForumApplicationKt")
+}
+
 
